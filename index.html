@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Just an iframe</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .iframe {
+        height: 90vh;
+        width: 100vw;
+        border: 1px solid #eee;
+        margin-top: 5vh;
+      }
+      .input {
+        position: absolute;
+        top: 2vh;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input">
+      <label for="src">iframe src</label>
+      <input type="text" name="src" />
+    </div>
+    <iframe src="" frameborder="0" class="iframe"></iframe>
+  </body>
+  <script>
+    const input = document.getElementsByTagName("input")[0];
+    const iframe = document.getElementsByClassName("iframe")[0];
+    input.addEventListener("change", () => (iframe.src = input.value));
+    console.log({ src: iframe.src, value: input.value });
+  </script>
+</html>
